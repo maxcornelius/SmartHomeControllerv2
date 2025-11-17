@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,20 @@ namespace SmartHomeController
 
         }
 
-       
+        public void TurnOn()
+        {
+            Status = true;
+            Console.WriteLine($"{DeviceName} with device ID {DeviceID} is now on. ");
+        }
+        public void TurnOff()
+        {
+            Status = false;
+            Console.WriteLine($"{DeviceName} with device ID {DeviceID} is now off. ");
+        }
+
+        public virtual void GetStatus()
+        {
+            Console.WriteLine($"Device ID: {DeviceID}, Name: {DeviceName}, Status (on or off): {(Status ? "ON" : "OFF")}");
+        }
     }
 }
